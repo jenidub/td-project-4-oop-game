@@ -24,20 +24,31 @@ class Game {
         return this.phrases[randomIndex]
     }
 
-    // handleInteraction() {}
+    handleInteraction(guess) {
+        console.log("guess: ", guess)
+        console.log("key name: ", guess.textContent)
+        guess.classList.add("chosen") //disable the onscreen key
+        if (this.activePhrase.phrase.includes(guess.textContent)) {
+            console.log("it's a match")
+        } else {
+            console.log("no match")
+            guess.classList.add("wrong") //mark guess as wrong
+            this.removeLife()
+        }
+    }
 
-    // removeLife() {}
+    removeLife() {
+        const lostHeart = document.querySelectorAll(".tries")[0]
+        lostHeart.src = "../images/lostHeart.png"
+        this.missed += 1  //increment -- number of lives
+        if (this.missed === 5) {
+            this.gameOver()
+        }
+    }
 
     // checkForWin() {}
 
-    // gameOver() {}
+    gameOver() {
+        console.log("game over! bummer...")
+    }
 }
-
-let phrase1 = new Phrase("wicked")
-let phrase2 = new Phrase("shogun")
-let phrase3 = new Phrase("snapped")
-let phrase4 = new Phrase("madison faye")
-let phrase5 = new Phrase("alexa riley")
-
-let newGame = new Game(0, [phrase1, phrase2, phrase3, phrase4, phrase5], null)
-newGame.startGame()
