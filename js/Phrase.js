@@ -3,9 +3,8 @@
  * Phrase.js */
 
 class Phrase {
-    constructor(phrase, guess) {
+    constructor(phrase) {
         this.phrase = phrase.toLowerCase();
-        this.guess = guess
     }
 
     addPhrasetoDisplay() {
@@ -16,7 +15,6 @@ class Phrase {
 
         for (let i = 0; i < phraseLength; i++) {
             let char = this.phrase[i]
-            console.log(char)
             newLetterElement = document.createElement("li")
 
             if (char !== " ") {
@@ -26,8 +24,6 @@ class Phrase {
                 newLetterElement.setAttribute("class", "space")
                 newLetterElement.innerText = " "
             }
-
-            console.log(newLetterElement)
             phraseUL.appendChild(newLetterElement)
         }
 
