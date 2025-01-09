@@ -11,13 +11,14 @@ let newGame = new Game(0, [phrase1, phrase2, phrase3, phrase4, phrase5], null)
 
 const startButton = document.querySelector("#btn__reset")
 startButton.addEventListener("click", () => {
+    // reset the game board Step 4 of the instructions
     newGame.startGame()
 })
 
 const keyboardArea = document.querySelector("#qwerty")
 keyboardArea.addEventListener("click", (event) => {
     console.log(event)
-    if(event.target.tagName === "BUTTON") {
+    if (event.target.tagName === "BUTTON") {
         newGame.handleInteraction(event.target)
     }
 })
