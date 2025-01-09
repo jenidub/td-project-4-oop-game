@@ -27,9 +27,16 @@ class Game {
     handleInteraction(guess) {
         console.log("guess: ", guess)
         console.log("key name: ", guess.textContent)
-        guess.classList.add("chosen") //disable the onscreen key
+
         if (this.activePhrase.phrase.includes(guess.textContent)) {
             console.log("it's a match")
+            guess.classList.add("chosen") //disable the onscreen key
+            this.activePhrase.showMatchedLetter(guess)
+            let gameStatus = this.checkForWin()
+            if (gameStatus) {
+                this.gameOver()
+            }
+            // const phraseStatus = document.querySelectorAll("")
         } else {
             console.log("no match")
             guess.classList.add("wrong") //mark guess as wrong
@@ -46,7 +53,9 @@ class Game {
         }
     }
 
-    // checkForWin() {}
+    checkForWin() {
+        console.log("did you win?")
+    }
 
     gameOver() {
         console.log("game over! bummer...")

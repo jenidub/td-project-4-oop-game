@@ -29,7 +29,7 @@ class Phrase {
 
         phraseDiv.append(phraseUL)
 
-        if (this.checkLetter) {
+        if (this.checkLetter()) {
             const letterLI = document.querySelectorAll(`.${this.guess}`)
             for (let i = 0; i < letterLI.length; i++) {
                 this.showMatchedLetter(letterLI[i])
@@ -44,9 +44,16 @@ class Phrase {
         return false
     }
 
-    showMatchedLetter(letter) {
-        letter.removeAttribute("hide")
-        letter.setAttribute("class", "show")
+    showMatchedLetter(guess) {
+        console.log(guess)
+        const matchingLetters = document.querySelectorAll(`.${guess.innerText}`)
+        console.log("matching letter list: ", matchingLetters)
+        if (matchingLetters.length > 0) {
+            matchingLetters.forEach(element => {
+                element.removeAttribute("hide")
+                element.setAttribute("class", "show")
+            })
+        }
     }
 }
 
