@@ -2,20 +2,14 @@
  * Project 4 - OOP Game App
  * app.js */
 
-// Create the Phrase Library
-let phrase1 = new Phrase("wicked")
-let phrase2 = new Phrase("shogun")
-let phrase3 = new Phrase("house of dragons")
-let phrase4 = new Phrase("abbott elementary")
-let phrase5 = new Phrase("lion king")
-
 // Create a new Game instance from Game class in Game.js
-let newGame = new Game(0, [phrase1, phrase2, phrase3, phrase4, phrase5], null)
+let newGame;
 
 // Start Game Button Event Listener
 // When the button is clicked, reset the game board and initiate the new game functionality
 const startButton = document.querySelector("#btn__reset")
 startButton.addEventListener("click", () => {
+    newGame = new Game()
     // Reset the game board
     // [1] Reset the <ul> element to be empty
     const phraseDiv = document.querySelector("#phrase")

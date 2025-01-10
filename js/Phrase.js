@@ -12,8 +12,7 @@ class Phrase {
     // * Check if the user's first guess is in the phrase
     addPhrasetoDisplay() {
         // Select the phrase <div> and <ul> elements to build the list
-        const phraseDiv = document.querySelector("#phrase")
-        const phraseUL = document.createElement("ul")
+        const phraseUl = document.querySelector("#phrase ul")
         
         // Iterate through the phrase letters to create the <ul> for display
         let phraseLength = this.phrase.length
@@ -33,10 +32,8 @@ class Phrase {
             }
 
             //Add the <li> to the <ul>
-            phraseUL.appendChild(newLetterElement)
+            phraseUl.appendChild(newLetterElement)
         }
-        // Add the <ul> created from the phrase to the <div> element
-        phraseDiv.append(phraseUL)
 
         // Check if the user's guess is in the phrase
         // If true, find the letter(s) elements in the list and 

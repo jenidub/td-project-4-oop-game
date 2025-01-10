@@ -2,14 +2,20 @@
  * Project 4 - OOP Game App
  * Game.js */
 
-const WIN_MESSAGE = "Congrats! Play again to prove it's not a fluke"
 const LOSE_MESSAGE = "Game Over! Try again - Practice makes perfect!"
+const WIN_MESSAGE = "Congrats! Play again to prove it's not a fluke"
 
 class Game {
-    constructor(missed = 0, phrases = [], activePhrase = "") {
-        this.missed = missed
-        this.phrases = phrases
-        this.activePhrase = activePhrase
+    constructor() {
+        this.missed = 0
+        this.phrases = [
+            new Phrase("lion king"),
+            new Phrase("abbott tv"),
+            new Phrase("house of dragons"),
+            new Phrase("shogun"),
+            new Phrase("wicked")
+        ]
+        this.activePhrase = null
     }
 
     // startGame() method
