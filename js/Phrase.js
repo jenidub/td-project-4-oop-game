@@ -45,9 +45,7 @@ class Phrase {
     }
 
     showMatchedLetter(guess) {
-        console.log(guess)
         const matchingLetters = document.querySelectorAll(`.${guess.innerText}`)
-        console.log("matching letter list: ", matchingLetters)
         if (matchingLetters.length > 0) {
             matchingLetters.forEach(element => {
                 element.removeAttribute("hide")
